@@ -75,11 +75,11 @@
                 <br />
                 <br />
                 <br />
-                <asp:Button ID="btn_testTasks" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тестовые задания" Width="300px" />
+                <asp:Button ID="btn_testTasks" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тестовые задания" Width="300px" OnClick="btn_testTasks_Click" />
                 <br />
                 <br />
                 <br />
-                <asp:Button ID="btn_Tests" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тесты" Width="300px" />
+                <asp:Button ID="btn_Tests" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тесты" Width="300px" OnClick="btn_Tests_Click" />
                 <br />
                 <br />
                 <br />

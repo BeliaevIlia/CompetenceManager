@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace CompetenceManager
 {
-    public partial class EditStaff : System.Web.UI.Page
+    public partial class EditTestTasks : System.Web.UI.Page
     {
         DataClasses1DataContext _eJDataContext;
         protected void Page_Load(object sender, EventArgs e)
@@ -22,18 +22,18 @@ namespace CompetenceManager
 
         private void FillCustomerInGrid()
         {
-            var allStaff = from staff in _eJDataContext.Staff.ToList()
-                           select staff;
+            var alltt = from tt in _eJDataContext.TestTasks.ToList()
+                          select tt;
 
-            if (allStaff.ToList().Count > 0)
+            if (alltt.ToList().Count > 0)
             {
-                GridView1.DataSource = allStaff;
+                GridView1.DataSource = alltt;
                 GridView1.DataBind();
             }
             else
             {
-                allStaff.ToList().Add(new Staff());
-                GridView1.DataSource = allStaff;
+                alltt.ToList().Add(new TestTasks());
+                GridView1.DataSource = alltt;
                 GridView1.DataBind();
 
                 int TotalColumns = GridView1.Rows[0].Cells.Count;
@@ -46,30 +46,21 @@ namespace CompetenceManager
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            TextBox tb_NewFIO = (TextBox)GridView1.FooterRow.FindControl("tb_NewFIO");
-            DropDownList ddl_NewGender = (DropDownList)GridView1.FooterRow.FindControl("ddl_NewGender");
-            TextBox tb_NewDate = (TextBox)GridView1.FooterRow.FindControl("tb_NewDate");
-            TextBox tb_NewPassword = (TextBox)GridView1.FooterRow.FindControl("tb_NewPassword");
-            TextBox tb_NewRole = (TextBox)GridView1.FooterRow.FindControl("tb_NewRole");
-            DropDownList ddl_NewPost = (DropDownList)GridView1.FooterRow.FindControl("ddl_NewPost");
+            TextBox tb_NewSubject = (TextBox)GridView1.FooterRow.FindControl("tb_NewSubject");
+            TextBox tb_NewQuest = (TextBox)GridView1.FooterRow.FindControl("tb_NewQuest");
+            TextBox tb_NewAnswers = (TextBox)GridView1.FooterRow.FindControl("tb_NewAnswers");
+            TextBox tb_NewTrueAnswer = (TextBox)GridView1.FooterRow.FindControl("tb_NewTrueAnswer");
+            TextBox tb_NewDifficult = (TextBox)GridView1.FooterRow.FindControl("tb_NewDifficult");
 
-            var staff = new Staff();
+            var tt = new TestTasks();
 
-            staff.FIO = tb_NewFIO.Text;
-            staff.Gender = ddl_NewGender.SelectedValue;
-            try
-            {
-                staff.BirthDate = Convert.ToDateTime(tb_NewDate.Text).Date;
-            }
-            catch (Exception exept)
-            {
-                Console.WriteLine("Error:  " + exept);
-            }
-            staff.Password = tb_NewPassword.Text;
-            staff.Role = tb_NewRole.Text;
-            staff.Post = ddl_NewPost.SelectedValue;
+            tt.Subject = tb_NewSubject.Text;
+            tt.Quest = tb_NewQuest.Text;
+            tt.Answers = tb_NewAnswers.Text;
+            tt.TrueAnswer = tb_NewTrueAnswer.Text;
+            tt.Dificult = tb_NewDifficult.Text;
 
-            _eJDataContext.Staff.InsertOnSubmit(staff);
+            _eJDataContext.TestTasks.InsertOnSubmit(tt);
             try
             {
                 _eJDataContext.SubmitChanges();
@@ -98,10 +89,10 @@ namespace CompetenceManager
             {
                 int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0].ToString());
 
-                var delStaff = from staff in _eJDataContext.Staff.ToList()
-                               where staff.Id == id
-                               select staff;
-                _eJDataContext.Staff.DeleteOnSubmit(delStaff.First());
+                var delTT = from tt in _eJDataContext.TestTasks.ToList()
+                              where tt.Id == id
+                              select tt;
+                _eJDataContext.TestTasks.DeleteOnSubmit(delTT.First());
                 try
                 {
                     _eJDataContext.SubmitChanges();
@@ -133,33 +124,24 @@ namespace CompetenceManager
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            TextBox tb_FIO = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_FIO");
-            DropDownList ddl_Gender = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddl_Gender");
-            TextBox tb_Date = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_Date");
-            TextBox tb_Password = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_Password");
-            TextBox tb_Role = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_Role");
-            DropDownList ddl_Post = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddl_Post");
+            TextBox tb_Subject = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_Subject");
+            TextBox tb_Quest = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_Quest");
+            TextBox tb_Answers = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_Answers");
+            TextBox tb_TrueAnswer = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_TrueAnswer");
+            TextBox tb_Difficult = (TextBox)GridView1.Rows[e.RowIndex].FindControl("tb_Difficult");
 
             int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0].ToString());
-
-            var updStaff = from staff in _eJDataContext.Staff.ToList()
-                           where staff.Id == id
-                           select staff;
-            foreach (Staff updStaf in updStaff)
+         
+            var updTT = from tt in _eJDataContext.TestTasks.ToList()
+                           where tt.Id == id
+                           select tt;
+            foreach (TestTasks updT in updTT)
             {
-                updStaf.FIO = tb_FIO.Text;
-                updStaf.Gender = ddl_Gender.SelectedValue;
-                try
-                {
-                    updStaf.BirthDate = Convert.ToDateTime(tb_Date.Text).Date;
-                }
-                catch (Exception exept)
-                {
-                    Console.WriteLine("Error:  " + exept);
-                }
-                updStaf.Password = tb_Password.Text;
-                updStaf.Role = tb_Role.Text;
-                updStaf.Post = ddl_Post.SelectedValue;
+                updT.Subject = tb_Subject.Text;
+                updT.Quest = tb_Quest.Text;
+                updT.Answers = tb_Answers.Text;
+                updT.TrueAnswer = tb_TrueAnswer.Text;
+                updT.Dificult = tb_Difficult.Text;
             }
             try
             {

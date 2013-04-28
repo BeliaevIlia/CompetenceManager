@@ -66,6 +66,8 @@
     <Content Include="EditCompetence.aspx" />
     <Content Include="EditPostProfile.aspx" />
     <Content Include="EditStaff.aspx" />
+    <Content Include="EditTests.aspx" />
+    <Content Include="EditTestTasks.aspx" />
     <Content Include="MainForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -102,6 +104,20 @@
     </Compile>
     <Compile Include="EditStaff.aspx.designer.cs">
       <DependentUpon>EditStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTests.aspx.cs">
+      <DependentUpon>EditTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTests.aspx.designer.cs">
+      <DependentUpon>EditTests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTestTasks.aspx.cs">
+      <DependentUpon>EditTestTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTestTasks.aspx.designer.cs">
+      <DependentUpon>EditTestTasks.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainForm.aspx.cs">
       <DependentUpon>MainForm.aspx</DependentUpon>

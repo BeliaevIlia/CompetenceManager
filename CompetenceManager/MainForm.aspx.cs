@@ -33,5 +33,15 @@ namespace CompetenceManager
         {
             Server.Transfer("EditStaff.aspx", true);
         }
+
+        protected void btn_testTasks_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("EditTestTasks.aspx", true);
+        }
+
+        protected void btn_Tests_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("EditTests.aspx", true);
+        }
     }
 }
