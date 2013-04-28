@@ -16,7 +16,9 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp; Меню &quot;Сотрудники&quot;<br /> <br />
+                &nbsp;&nbsp;&nbsp;&nbsp; Меню &quot;Сотрудники&quot;<br /> 
+                <br />
+                <br />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id,FIO,Gender,BirthDate,Password,Role,Post" EmptyDataText="Нет записей для отображения." ShowFooter="True" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="ФИО" SortExpression="FIO">

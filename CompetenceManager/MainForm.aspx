@@ -16,13 +16,7 @@
             <asp:Table ID="Table1" runat="server" Width ="800px" Height="16px">
                 <asp:TableRow runat="server">
                     <asp:TableCell runat="server" Width ="500">
-                    </asp:TableCell>
-                    <asp:TableCell runat="server" Width ="300">
-                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-            <br />
-            <asp:Panel ID="p_LeftColumn" runat="server" BorderStyle="None" Width ="500px">
+                        <asp:Panel ID="p_LeftColumn" runat="server" BorderStyle="None" Width ="500px">
                             <br />
                             <asp:Panel ID="Panel2" runat="server" BorderStyle="Outset" HorizontalAlign="Center">
                                 <br />
@@ -60,37 +54,43 @@
                             <br />
                             <br />
             </asp:Panel>
-            <asp:Panel ID="p_RightColumn" runat="server" BorderStyle="Outset" Width ="300" HorizontalAlign="Center">
-                <br />
-                <br />
-                <asp:Button ID="btn_Competence" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Компетенции" Width="300px" OnClick="btn_Competence_Click" />
-                <br />
-                <br />
-                <br />
-                <asp:Button ID="btn_PostProfiles" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Должностные профили" Width="300px" OnClick="btn_PostProfiles_Click" />
-                <br />
-                <br />
-                <br />
-                <asp:Button ID="btn_Staff" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Сотрудники" Width="300px" OnClick="btn_Staff_Click" />
-                <br />
-                <br />
-                <br />
-                <asp:Button ID="btn_testTasks" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тестовые задания" Width="300px" OnClick="btn_testTasks_Click" />
-                <br />
-                <br />
-                <br />
-                <asp:Button ID="btn_Tests" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тесты" Width="300px" OnClick="btn_Tests_Click" />
-                <br />
-                <br />
-                <br />
-                <asp:Button ID="btn_Projects" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Проекты" Width="300px" />
-                <br />
-                <br />
-                <br />
-                <asp:Button ID="btn_StudyPrograms" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Учебные программы" Width="300px" />
-                <br />
-                <br />
-            </asp:Panel>
+                    </asp:TableCell>
+                    <asp:TableCell runat="server" Width ="300">
+                        <asp:Panel ID="p_RightColumn" runat="server" BorderStyle="Outset" Width ="300" HorizontalAlign="Center">
+                            <br />
+                            <asp:Button ID="btn_Competence" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Компетенции" Width="300px" OnClick="btn_Competence_Click" />
+                            <br />
+                            <br />
+                            <br />
+                            <asp:Button ID="btn_PostProfiles" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Должностные профили" Width="300px" OnClick="btn_PostProfiles_Click" />
+                            <br />
+                            <br />
+                            <br />
+                            <asp:Button ID="btn_Staff" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Сотрудники" Width="300px" OnClick="btn_Staff_Click" />
+                            <br />
+                            <br />
+                            <br />
+                            <asp:Button ID="btn_testTasks" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тестовые задания" Width="300px" OnClick="btn_testTasks_Click" />
+                            <br />
+                            <br />
+                            <br />
+                            <asp:Button ID="btn_Tests" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Тесты" Width="300px" OnClick="btn_Tests_Click" />
+                            <br />
+                            <br />
+                            <br />
+                            <asp:Button ID="btn_Projects" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Проекты" Width="300px" OnClick="btn_Projects_Click" />
+                            <br />
+                            <br />
+                            <br />
+                            <asp:Button ID="btn_StudyPrograms" runat="server" BackColor="White" BorderStyle="None" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="16pt" Font-Underline="True" Text="Учебные программы" Width="300px" OnClick="btn_StudyPrograms_Click" />
+                            <br />
+                            <br />
+                        </asp:Panel>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <br />
+            
         </asp:Panel>
     </div>
     </form>

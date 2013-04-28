@@ -18,6 +18,7 @@
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp; Меню &quot;Компетенции&quot;:<br />
                 <br />
+                <br />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id,Name" OnRowDeleting="GridView1_RowDeleting" ShowFooter="True" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="Название" SortExpression="Name">

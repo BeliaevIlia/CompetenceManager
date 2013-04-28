@@ -65,7 +65,9 @@
     <Content Include="Autorisation.aspx" />
     <Content Include="EditCompetence.aspx" />
     <Content Include="EditPostProfile.aspx" />
+    <Content Include="EditProjects.aspx" />
     <Content Include="EditStaff.aspx" />
+    <Content Include="EditStudyPrograms.aspx" />
     <Content Include="EditTests.aspx" />
     <Content Include="EditTestTasks.aspx" />
     <Content Include="MainForm.aspx" />
@@ -98,12 +100,26 @@
     <Compile Include="EditPostProfile.aspx.designer.cs">
       <DependentUpon>EditPostProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditProjects.aspx.cs">
+      <DependentUpon>EditProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProjects.aspx.designer.cs">
+      <DependentUpon>EditProjects.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditStaff.aspx.cs">
       <DependentUpon>EditStaff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditStaff.aspx.designer.cs">
       <DependentUpon>EditStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditStudyPrograms.aspx.cs">
+      <DependentUpon>EditStudyPrograms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditStudyPrograms.aspx.designer.cs">
+      <DependentUpon>EditStudyPrograms.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditTests.aspx.cs">
       <DependentUpon>EditTests.aspx</DependentUpon>

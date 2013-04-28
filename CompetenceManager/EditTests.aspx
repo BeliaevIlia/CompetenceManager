@@ -17,6 +17,8 @@
                 </asp:ScriptManager>
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp; Меню &quot;Тесты&quot;<br />
+                <br />
+                <br />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" EmptyDataText="Нет записей для отображения." OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" ShowFooter="True">
                     <Columns>
                         <asp:TemplateField HeaderText="Название теста" SortExpression="Name">
