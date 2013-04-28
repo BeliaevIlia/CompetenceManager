@@ -80,57 +80,60 @@ namespace CompetenceManager
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0].ToString());
-            string compName = GridView1.DataKeys[e.RowIndex].Values[1].ToString();
+            if ((sender as GridView).Rows.Count > 1)
+            {
+                int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0].ToString());
+                string compName = GridView1.DataKeys[e.RowIndex].Values[1].ToString();
 
-            var delSPrograms = from sProg in _eJDataContext.StudyPrograms.ToList()
-                               where sProg.Competence == compName
-                               select sProg;
-            foreach(var delSProgram in delSPrograms)
-                _eJDataContext.StudyPrograms.DeleteOnSubmit(delSProgram);
-            try
-            {
-                _eJDataContext.SubmitChanges();
-            }
-            catch
-            {
-                _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
+                var delSPrograms = from sProg in _eJDataContext.StudyPrograms.ToList()
+                                   where sProg.Competence == compName
+                                   select sProg;
+                foreach (var delSProgram in delSPrograms)
+                    _eJDataContext.StudyPrograms.DeleteOnSubmit(delSProgram);
+                try
                 {
-                    try
+                    _eJDataContext.SubmitChanges();
+                }
+                catch
+                {
+                    _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
                     {
-                        _eJDataContext.SubmitChanges();
-                    }
-                    catch (Exception exept)
-                    {
-                        Console.WriteLine("Error:  " + exept);
+                        try
+                        {
+                            _eJDataContext.SubmitChanges();
+                        }
+                        catch (Exception exept)
+                        {
+                            Console.WriteLine("Error:  " + exept);
+                        }
                     }
                 }
-            }
 
-            var delComp = from comp in _eJDataContext.Competence.ToList()
-                          where comp.Id == id
-                          select comp;
-            _eJDataContext.Competence.DeleteOnSubmit(delComp.First());
-            try
-            {
-                _eJDataContext.SubmitChanges();
-            }
-            catch
-            {
-                _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
+                var delComp = from comp in _eJDataContext.Competence.ToList()
+                              where comp.Id == id
+                              select comp;
+                _eJDataContext.Competence.DeleteOnSubmit(delComp.First());
+                try
                 {
-                    try
+                    _eJDataContext.SubmitChanges();
+                }
+                catch
+                {
+                    _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
                     {
-                        _eJDataContext.SubmitChanges();
-                    }
-                    catch (Exception exept)
-                    {
-                        Console.WriteLine("Error:  " + exept);
+                        try
+                        {
+                            _eJDataContext.SubmitChanges();
+                        }
+                        catch (Exception exept)
+                        {
+                            Console.WriteLine("Error:  " + exept);
+                        }
                     }
                 }
-            }
 
-            FillCustomerInGrid();
+                FillCustomerInGrid();
+            }
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)

@@ -78,57 +78,60 @@ namespace CompetenceManager
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0].ToString());
-            string ppName = GridView1.DataKeys[e.RowIndex].Values[1].ToString();
+            if ((sender as GridView).Rows.Count > 1)
+            {
+                int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0].ToString());
+                string ppName = GridView1.DataKeys[e.RowIndex].Values[1].ToString();
 
-            var delStaff = from staff in _eJDataContext.Staff.ToList()
-                           where staff.Post == ppName
-                           select staff;
-            foreach (var delSProgram in delStaff)
-                _eJDataContext.Staff.DeleteOnSubmit(delSProgram);
-            try
-            {
-                _eJDataContext.SubmitChanges();
-            }
-            catch
-            {
-                _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
+                var delStaff = from staff in _eJDataContext.Staff.ToList()
+                               where staff.Post == ppName
+                               select staff;
+                foreach (var delSProgram in delStaff)
+                    _eJDataContext.Staff.DeleteOnSubmit(delSProgram);
+                try
                 {
-                    try
+                    _eJDataContext.SubmitChanges();
+                }
+                catch
+                {
+                    _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
                     {
-                        _eJDataContext.SubmitChanges();
-                    }
-                    catch (Exception exept)
-                    {
-                        Console.WriteLine("Error:  " + exept);
+                        try
+                        {
+                            _eJDataContext.SubmitChanges();
+                        }
+                        catch (Exception exept)
+                        {
+                            Console.WriteLine("Error:  " + exept);
+                        }
                     }
                 }
-            }
 
-            var delPP = from pp in _eJDataContext.PostProfile.ToList()
-                          where pp.Id == id
-                          select pp;
-            _eJDataContext.PostProfile.DeleteOnSubmit(delPP.First());
-            try
-            {
-                _eJDataContext.SubmitChanges();
-            }
-            catch
-            {
-                _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
+                var delPP = from pp in _eJDataContext.PostProfile.ToList()
+                            where pp.Id == id
+                            select pp;
+                _eJDataContext.PostProfile.DeleteOnSubmit(delPP.First());
+                try
                 {
-                    try
+                    _eJDataContext.SubmitChanges();
+                }
+                catch
+                {
+                    _eJDataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
                     {
-                        _eJDataContext.SubmitChanges();
-                    }
-                    catch (Exception exept)
-                    {
-                        Console.WriteLine("Error:  " + exept);
+                        try
+                        {
+                            _eJDataContext.SubmitChanges();
+                        }
+                        catch (Exception exept)
+                        {
+                            Console.WriteLine("Error:  " + exept);
+                        }
                     }
                 }
-            }
 
-            FillCustomerInGrid();
+                FillCustomerInGrid();
+            }
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
